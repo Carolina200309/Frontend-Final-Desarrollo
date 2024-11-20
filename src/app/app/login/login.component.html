@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <h1 class="text-center mb-4">Login</h1>
+        <form (ngSubmit)="validateUserCredentials()">  
+          <div class="form-group">
+            <label for="usuario">Usuario</label>
+            <input type="text" id="usuario" [(ngModel)]="usuario" name="usuario" class="form-control" placeholder="Entra tu usuario" required />
+          </div>
+  
+          <div class="form-group">
+            <label for="password">Contraseña</label>  
+            <input type="password" id="password" [(ngModel)]="password" name="password" class="form-control" placeholder="Entra tu password" required /> 
+          </div>
+  
+          <button type="submit" class="btn btn-primary btn-block">Log In</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

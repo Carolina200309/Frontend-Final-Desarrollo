@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1 class="text-center mb-4">Lista de Reseñas</h1>
+
+      <div *ngFor="let resena of resenas" class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">{{ resena.nombreRestaurante }}</h5>
+          <p class="card-text">{{ resena.comentario }}</p>
+          <p class="card-text"><strong>Calificación:</strong> {{ resena.calificacion }}</p>
+
+
+          <!-- Botón de editar, solo visible si la reseña pertenece al usuario logueado -->
+          <button *ngIf="resena.usuario === currentUserId" class="btn btn-warning" (click)="editReview(resena._id)">
+            Editar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

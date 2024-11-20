@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <h1 class="text-center mb-4">Crear Reseña</h1>
+        <form (ngSubmit)="submitReview()">
+          <div class="form-group">
+            <label for="nombreRestaurante">Nombre del Restaurante</label>
+            <input
+              type="text"
+              id="nombreRestaurante"
+              [(ngModel)]="review.nombreRestaurante"
+              name="nombreRestaurante"
+              class="form-control"
+              placeholder="Ingrese el nombre del restaurante"
+              required
+            />
+          </div>
+  
+          <div class="form-group">
+            <label for="calificacion">Calificación</label>
+            <select
+              id="calificacion"
+              [(ngModel)]="review.calificacion"
+              name="calificacion"
+              class="form-control"
+              required
+            >
+              <option value="1">1 - Muy Malo</option>
+              <option value="2">2 - Malo</option>
+              <option value="3">3 - Aceptable</option>
+              <option value="4">4 - Bueno</option>
+              <option value="5">5 - Excelente</option>
+            </select>
+          </div>
+  
+          <div class="form-group">
+            <label for="comentario">Comentario</label>
+            <textarea
+              id="comentario"
+              [(ngModel)]="review.comentario"
+              name="comentario"
+              class="form-control"
+              rows="4"
+              placeholder="Escribe tu comentario"
+              required
+            ></textarea>
+          </div>
+  
+          <button type="submit" class="btn btn-primary btn-block">Enviar Reseña</button>
+        </form>
+        <button class="btn btn-secondary mt-3" (click)="goToHome()">Volver al Home</button>
+      </div>
+    </div>
+  </div>
+  
