@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import {jwtDecode, JwtPayload} from "jwt-decode";
 
 @Component({
   selector: 'app-login',
@@ -27,6 +28,15 @@ export class LoginComponent {
         this.apiResponse = resp;
         var token = this.apiResponse.token;
         sessionStorage.setItem('session_token', token);
+
+        const decoded: JwtPayload = jwtDecode(token);
+        const userId = decoded.sub;
+        if (!userId) {
+          console.error('No se encontró el ID de usuario en el token');
+          return;
+        }
+        sessionStorage.setItem('userId', userId);
+
         this.router.navigate(['home']);
       },
       error: err => {

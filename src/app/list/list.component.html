@@ -14,6 +14,9 @@
           <button *ngIf="resena.usuario === currentUserId" class="btn btn-warning" (click)="editReview(resena._id)">
             Editar
           </button>
+          <button *ngIf="resena.usuario === currentUserId" class="btn btn-danger" (click)="deleteReview(resena._id)">
+            Eliminar
+          </button>
         </div>
       </div>
     </div>
